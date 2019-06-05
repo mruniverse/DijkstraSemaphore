@@ -13,16 +13,22 @@ typedef struct Process{
 
 }Process;
 
-vector<int> inclusion_routine(Process p, vector<int> vector){
+vector<int> inclusion_routine(Process p, vector<int> vector, int clock){
+  int last = vector.size() - 1;
   int rand_value;
   srand (time(NULL));
 
   cout << "Região crítica acessada." << endl;
-  for (int i = 1; i <= 10; i++) {
+  if(vector[0] != 0){ cout << "Vetor cheio" << endl; return vector;}
+  for (int i = 1; i <= clock; i++) {
+    // if(i > 10){
+    //   cout << "Clock esgotado!" << endl;
+    //
+    // }
+
     rand_value = rand() % 1000+1;
 
     // vector.push_back(rand_value);
-    int last = vector.size();
     if(vector[last] == 0){
       vector[last] = rand_value;
     }
